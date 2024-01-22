@@ -48,8 +48,8 @@
                     { "data": "age" },
                     { "data": "start_date" },
                     { "data": "salary" },
-                    { data: function() {
-    return "-"
+                    { render: function( data, type, row, meta ) {
+    return `<button class="btn btn-primary" onclick="alert('Hello ${row['name']}')">Click Me!</button>`
 } },
                 ]
           });
