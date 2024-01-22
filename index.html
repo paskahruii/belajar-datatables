@@ -32,6 +32,7 @@
           <th>Age</th>
           <th>Start date</th>
           <th>Salary</th>
+          <th>Action</th>
         </tr>
       </thead>
      
@@ -46,7 +47,10 @@
                     { "data": "office" },
                     { "data": "age" },
                     { "data": "start_date" },
-                    { "data": "salary" }
+                    { "data": "salary" },
+                    { data: function() {
+    return "-"
+} },
                 ]
           });
         });
