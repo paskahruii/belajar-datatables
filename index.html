@@ -16,6 +16,8 @@
     href="https://cdn.datatables.net/1.10.24/css/dataTables.bootstrap4.min.css"
   />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="https://cdn.datatables.net/buttons/1.7.0/css/buttons.dataTables.min.css" />
+    <link rel="stylesheet" href="https://cdn.datatables.net/buttons/1.7.0/css/buttons.bootstrap4.min.css" />
   </head>
   <body>
   
@@ -31,7 +33,7 @@
           <th>Name</th>
           <th>Position</th>
           <th>Office</th>
-          <th>Age</th>
+          <ext>Age</ext>
           <th>Start date</th>
           <th>Salary</th>
           <th>Action</th>
@@ -88,13 +90,22 @@
       <script>
         $(document).ready(function () {
           var t = $("#tabel-data").DataTable({
+            dom: "<'row'<'col-sm-2 col-md-1'B><'col-sm-10 col-md-3'l><'col-sm-12 col-md-8'f>>" +
+    "<'row'<'col-sm-12'tr>>" +
+    "<'row'<'col-sm-12 col-md-5'i><'col-sm-12 col-md-7'p>>",
+buttons: [{
+    text: '<span class="fas fa-plus"></span>',
+    action: function(e, db, node, config) {
+        window.location = "add.html";
+    }
+}],
             pagingType: "simple",
             "ajax": "http://172.16.3.12:5500/employee",
                 "columns": [
                     { "data": "name" },
                     { "data": "position" },
                     { "data": "office" },
-                    { "data": "age" },
+                    { "data": "extn" },
                     { "data": "start_date" },
                     { "data": "salary" },
                     { render: function( data, type, row, meta ) {
@@ -121,9 +132,10 @@
                 modal.find('#extension').val(data['extension']);
             });
         });
-        
       </script>
       <script src="https://cdn.datatables.net/1.10.24/js/dataTables.bootstrap4.min.js"></script>
+      <script src="https://cdn.datatables.net/buttons/1.7.0/js/dataTables.buttons.min.js"></script>
+      <script src="https://cdn.datatables.net/buttons/1.7.0/js/buttons.bootstrap4.min.js"></script>
    
    
   
