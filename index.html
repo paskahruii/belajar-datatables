@@ -49,7 +49,9 @@
                     { "data": "start_date" },
                     { "data": "salary" },
                     { render: function( data, type, row, meta ) {
-    return `<button class="btn btn-primary" onclick="alert('Hello ${row['name']}')">Click Me!</button>`
+                      return `<button class="btn btn-info btn-sm" data-toggle="modal" data-target="#exampleModal" name="infoBtn"><i class="fa fa-eye"></i></button>
+<button class="btn btn-primary btn-sm" data-toggle="modal" data-target="#exampleModal" name="editBtn"><i class="fa fa-edit"></i></button>
+<button class="btn btn-danger btn-sm" onclick="confirm('Are you sure to delete data of ${row['name']}?')"><i class="fa fa-trash"></i></button>`;
 } },
                 ]
           });
